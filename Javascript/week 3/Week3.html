@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+  <title>Week Three Homework</title>
+  <style>
+    .image {
+      width: 150px;
+      height: 150px;
+      background-size: cover;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="header">AJAX API First Try</h2>
+  <input id="search" type="text" />
+  <button id="find">Find Picture</button>
+  <div id="images">
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+      var keyword ='';
+      $('#search').change(function() {
+        keyword = $('#search').val();
+        console.log(keyword);
+      })
+      var url = "https://pixabay.com/api/?key=3356301-926f56dfed0a283c9c82532ea&q=";
+      $('#find').click(function() {
+        $.ajax({
+          url: url+keyword,
+          success: function(result) {
+            console.log(result);
+            var html = '';
+            for(var i=0; i<result.hits.length; i++){
+              html += '<div style="background-image:url('+ result.hits[i].previewURL + ')" class="image"></div>';
+            }
+            $('#images').html(html);
+          }
+        })
+      })
+    })
+  </script>
+</body>

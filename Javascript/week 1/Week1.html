@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <title>Week One Homework</title>
+</head>
+<body>
+  <h2 id="header">Javascript First Try</h2>
+  <img id="picture" src="http://www.javatpoint.com/images/javascript/javascript_logo.png" alt="">
+  <script>
+    var text = document.getElementById('header');
+    var pic = document.getElementById('picture');
+    function reset(){
+      text.style = '';
+      pic.style = '';
+    }
+    function upsidedown(){
+      text.style.transform = 'rotate(180deg)';
+      pic.style.transform = 'rotate(180deg)';
+    }
+
+    setTimeout(upsidedown, 3000);
+    setTimeout(reset, 6000);
+  </script>
+</body>

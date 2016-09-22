@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+  <title>Week Two Homework</title>
+</head>
+<body>
+  <h2 id="header">Javascript First Try</h2>
+  <img id="picture" src="http://www.javatpoint.com/images/javascript/javascript_logo.png" alt="">
+  <button id="reset">Reset</button>
+  <button id="move">Move!</button>
+  <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+      var text = $('#header');
+      var pic = $('#picture');
+      function reset(){
+        text.animate({
+          left:'0',
+          fontSize: '24px',
+          opacity:'1',
+        });
+        pic.animate({
+          left:'0',
+          opacity:'1',
+        });
+      }
+      function move(){
+        text.animate({
+          left:'300px',
+          fontSize: '72px',
+          opacity:'0.2',
+        });
+        pic.animate({
+          left:'300px',
+          opacity:'0.2',
+        });
+      }
+      $('#reset').click(reset);
+      $('#move').click(move);
+    });
+  </script>
+</body>
